@@ -1,0 +1,433 @@
+---
+import '@/styles/globals.css';
+import Layout from '../layouts/Layout.astro';
+import { Terminal, Code2, Cpu, Send, TerminalSquare, Github, ExternalLink, Gamepad2, ShoppingBag, Rocket, LineChart } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
+---
+
+<Layout title="Jay D. Dev | Creative Developer">
+  <main class="min-h-screen bg-black text-green-500 relative overflow-x-hidden">
+    <canvas id="matrix-rain" class="fixed top-0 left-0 w-full h-full opacity-20 pointer-events-none"></canvas>
+
+    <div class="relative z-10">
+      <nav class="border-b border-green-500/20 backdrop-blur-sm fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between h-16">
+            <div class="flex items-center space-x-4">
+              <Terminal class="w-8 h-8" />
+              <span class="font-mono text-xl font-bold">Jay D. Dev</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+              <Button variant="ghost" class="text-green-500 hover:text-green-400" data-scroll-to="about">About</Button>
+              <Button variant="ghost" class="text-green-500 hover:text-green-400" data-scroll-to="projects">Projects</Button>
+              <Button variant="ghost" class="text-green-500 hover:text-green-400" data-scroll-to="inquire">Inquire</Button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <section class="pt-24 pb-32 px-4">
+        <div class="max-w-7xl mx-auto">
+          <div class="terminal-window border border-green-500/50 rounded-lg p-8 backdrop-blur-sm">
+            <div class="flex items-center space-x-2 mb-4">
+              <div class="w-3 h-3 rounded-full bg-red-500"></div>
+              <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+              <div class="w-3 h-3 rounded-full bg-green-500"></div>
+            </div>
+            <div class="typewriter-text space-y-4">
+              <p class="font-mono text-2xl md:text-4xl font-bold">
+                Jay D. Dev // HomeBase
+              </p>
+              <p class="font-mono text-xl md:text-2xl text-green-400/80">
+                // Creative Developer
+              </p>
+              <p class="font-mono text-xl md:text-2xl text-green-400/80">
+                // Level up your brand
+              </p>
+              <div class="flex items-center space-x-4 mt-8">
+                <Button class="bg-green-500 hover:bg-green-400 text-black" data-scroll-to="projects">
+                  <Code2 class="mr-2 h-4 w-4" /> View Projects
+                </Button>
+                <Button variant="outline" class="border-green-500 text-green-500 hover:bg-green-500/10" data-scroll-to="about">
+                  <Cpu class="mr-2 h-4 w-4" /> About Me
+                </Button>
+                <Button variant="outline" class="border-green-500 text-green-500 hover:bg-green-500/10" data-scroll-to="inquire">
+                  <Send class="mr-2 h-4 w-4" /> Let's Connect
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="py-32 px-4">
+        <div class="max-w-7xl mx-auto w-full">
+          <div class="terminal-window border border-green-500/50 rounded-lg p-8 backdrop-blur-sm">
+            <h2 class="text-2xl font-bold mb-4">About</h2>
+            <p class="text-green-400/80 text-lg leading-relaxed">Just a solo dev who likes hacking together cool things on the internet.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="py-32 px-4">
+        <div class="max-w-7xl mx-auto w-full">
+          <div class="terminal-window border border-green-500/50 rounded-lg p-8 backdrop-blur-sm">
+            <h2 class="text-2xl font-bold mb-8">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div class="border border-green-500/30 rounded-lg p-6 hover:border-green-500/60 transition-all">
+                <div class="flex items-center space-x-2 mb-3">
+                  <LineChart class="w-6 h-6" />
+                  <h3 class="text-xl font-bold">CryptoTracker Pro</h3>
+                </div>
+                <p class="text-green-400/80 mb-4">Real-time cryptocurrency tracking platform with advanced analytics and portfolio management.</p>
+                <div class="flex space-x-4">
+                  <a href="https://euphonious-kashata-21d2ba.netlify.app/" target="_blank" rel="noopener noreferrer" class="flex items-center text-green-500 hover:text-green-400">
+                    <ExternalLink class="w-5 h-5 mr-2" />
+                    Live Demo
+                  </a>
+                </div>
+              </div>
+              <div class="border border-green-500/30 rounded-lg p-6 hover:border-green-500/60 transition-all">
+                <div class="flex items-center space-x-2 mb-3">
+                  <Rocket class="w-6 h-6" />
+                  <h3 class="text-xl font-bold">SpaceX Launch Tracker</h3>
+                </div>
+                <p class="text-green-400/80 mb-4">Interactive SpaceX launch history and tracking tool with real-time updates and detailed mission information.</p>
+                <div class="flex space-x-4">
+                  <a href="https://magical-licorice-ad5b9f.netlify.app/" target="_blank" rel="noopener noreferrer" class="flex items-center text-green-500 hover:text-green-400">
+                    <ExternalLink class="w-5 h-5 mr-2" />
+                    Live Demo
+                  </a>
+                </div>
+              </div>
+              <div class="border border-green-500/30 rounded-lg p-6 hover:border-green-500/60 transition-all">
+                <div class="flex items-center space-x-2 mb-3">
+                  <ShoppingBag class="w-6 h-6" />
+                  <h3 class="text-xl font-bold">Sport Sleep</h3>
+                </div>
+                <p class="text-green-400/80 mb-4">E-commerce site for Sport Sleep, built on Shopify, featuring a high-converting design, seamless checkout, and custom elements.</p>
+                <div class="flex space-x-4">
+                  <a href="https://sportsleeptape.com" target="_blank" rel="noopener noreferrer" class="flex items-center text-green-500 hover:text-green-400">
+                    <ExternalLink class="w-5 h-5 mr-2" />
+                    Visit Site
+                  </a>
+                </div>
+              </div>
+              <div class="border border-green-500/30 rounded-lg p-6 hover:border-green-500/60 transition-all">
+                <div class="flex items-center space-x-2 mb-3">
+                  <Gamepad2 class="w-6 h-6" />
+                  <h3 class="text-xl font-bold">Ball Knower</h3>
+                </div>
+                <p class="text-green-400/80 mb-4">Interactive NBA trivia game where you test your knowledge of players' college backgrounds. Built with React and NBA player data.</p>
+                <div class="flex space-x-4">
+                  <a href="https://precious-moonbeam-e5d6ae.netlify.app/" target="_blank" rel="noopener noreferrer" class="flex items-center text-green-500 hover:text-green-400">
+                    <ExternalLink class="w-5 h-5 mr-2" />
+                    Live Demo
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="inquire" class="py-32 px-4">
+        <div class="max-w-7xl mx-auto w-full">
+          <div class="terminal-window border border-green-500/50 rounded-lg p-8 backdrop-blur-sm">
+            <div class="flex items-center space-x-2 mb-6">
+              <TerminalSquare class="w-6 h-6" />
+              <h2 class="text-2xl font-bold">Terminal Connection Request (Let's Work Together)</h2>
+            </div>
+            <form id="inquiry-form" class="space-y-6">
+              <div class="terminal-input-group" data-step="1">
+                <label class="text-green-400">> Enter_name:</label>
+                <div class="flex">
+                  <input type="text" name="name" class="terminal-input w-full bg-black/50 border border-green-500/30 text-green-400 px-4 py-2 rounded focus:outline-none focus:border-green-500 placeholder-green-700" placeholder="John Doe" />
+                  <button type="button" class="next-step ml-2 px-4 py-2 bg-green-500 text-black rounded hover:bg-green-400">Enter</button>
+                </div>
+              </div>
+              <div class="terminal-response hidden"></div>
+
+              <div class="terminal-input-group hidden" data-step="2">
+                <label class="text-green-400">> Enter_email:</label>
+                <div class="flex">
+                  <input type="email" name="email" class="terminal-input w-full bg-black/50 border border-green-500/30 text-green-400 px-4 py-2 rounded focus:outline-none focus:border-green-500 placeholder-green-700" placeholder="john@example.com" />
+                  <button type="button" class="next-step ml-2 px-4 py-2 bg-green-500 text-black rounded hover:bg-green-400">Enter</button>
+                </div>
+              </div>
+              <div class="terminal-response hidden"></div>
+
+              <div class="terminal-input-group hidden" data-step="3">
+                <label class="text-green-400">> Project_description:</label>
+                <div class="flex">
+                  <textarea name="description" class="terminal-input w-full bg-black/50 border border-green-500/30 text-green-400 px-4 py-2 rounded focus:outline-none focus:border-green-500 placeholder-green-700 min-h-[100px]" placeholder="Describe your project requirements..."></textarea>
+                  <button type="button" class="next-step ml-2 px-4 py-2 bg-green-500 text-black rounded hover:bg-green-400">Enter</button>
+                </div>
+              </div>
+              <div class="terminal-response hidden"></div>
+
+              <div class="terminal-input-group hidden" data-step="4">
+                <label class="text-green-400">> Budget_range:</label>
+                <div class="flex">
+                  <select name="budget" class="terminal-input w-full bg-black/50 border border-green-500/30 text-green-400 px-4 py-2 rounded focus:outline-none focus:border-green-500">
+                    <option value="" disabled selected>Select budget range</option>
+                    <option value="small">$1,000 - $5,000</option>
+                    <option value="medium">$5,000 - $10,000</option>
+                    <option value="large">$10,000 - $20,000</option>
+                    <option value="enterprise">$20,000+</option>
+                  </select>
+                  <button type="button" class="next-step ml-2 px-4 py-2 bg-green-500 text-black rounded hover:bg-green-400">Enter</button>
+                </div>
+              </div>
+              <div class="terminal-response hidden"></div>
+
+              <div class="terminal-input-group hidden" data-step="5">
+                <label class="text-green-400">> Project_timeline:</label>
+                <div class="flex">
+                  <select name="timeline" class="terminal-input w-full bg-black/50 border border-green-500/30 text-green-400 px-4 py-2 rounded focus:outline-none focus:border-green-500">
+                    <option value="" disabled selected>Select timeline</option>
+                    <option value="ultra_fast">Ultra fast (< 1 week)</option>
+                    <option value="urgent">ASAP (1-2 weeks)</option>
+                    <option value="short">Short term (2-4 weeks)</option>
+                    <option value="medium">Medium term (1-2 months)</option>
+                    <option value="long">Long term (3+ months)</option>
+                  </select>
+                  <button type="button" class="submit-form ml-2 px-4 py-2 bg-green-500 text-black rounded hover:bg-green-400">Submit</button>
+                </div>
+              </div>
+              <div class="terminal-response hidden"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</Layout>
+
+<script>
+// Matrix rain effect
+const canvas = document.getElementById('matrix-rain') as HTMLCanvasElement;
+const ctx = canvas.getContext('2d');
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%";
+const characters = matrix.split("");
+const fontSize = 14;
+const columns = canvas.width / fontSize;
+const drops: number[] = [];
+
+for (let x = 0; x < columns; x++) {
+  drops[x] = 1;
+}
+
+function draw() {
+  if (!ctx) return;
+  
+  ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.fillStyle = "#0F0";
+  ctx.font = fontSize + "px monospace";
+
+  for (let i = 0; i < drops.length; i++) {
+    const text = characters[Math.floor(Math.random() * characters.length)];
+    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+      drops[i] = 0;
+    }
+
+    drops[i]++;
+  }
+}
+
+window.addEventListener('resize', () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
+
+setInterval(draw, 35);
+
+// Typewriter effect
+const typewriterElements = document.querySelectorAll('.typewriter-text p');
+typewriterElements.forEach((element, index) => {
+  const text = element.textContent || '';
+  element.textContent = '';
+  let i = 0;
+
+  setTimeout(() => {
+    const typing = setInterval(() => {
+      if (i < text.length) {
+        element.textContent += text.charAt(i);
+        i++;
+      } else {
+        clearInterval(typing);
+      }
+    }, 50);
+  }, index * 1000);
+});
+
+// Smooth scrolling
+document.querySelectorAll('[data-scroll-to]').forEach(button => {
+  button.addEventListener('click', (e) => {
+    e.preventDefault();
+    const targetId = (button as HTMLElement).dataset.scrollTo;
+    const targetElement = document.getElementById(targetId as string);
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+});
+
+// Form handling with keyboard support
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('inquiry-form');
+  const nextButtons = document.querySelectorAll('.next-step');
+  const submitButton = document.querySelector('.submit-form');
+
+  function showResponse(inputGroup: Element, value: string) {
+    const responseDiv = inputGroup.nextElementSibling as HTMLElement;
+    const label = inputGroup.querySelector('label')?.textContent;
+    responseDiv?.classList.remove('hidden');
+    responseDiv.innerHTML = `<div class="text-green-400/70 font-mono pl-4 border-l border-green-500/30">
+      ${value}
+    </div>`;
+    inputGroup.querySelector('.flex')?.classList.add('hidden');
+  }
+
+  function handleNextStep(currentGroup: Element) {
+    const currentStep = parseInt(currentGroup?.getAttribute('data-step') || '1');
+    const input = currentGroup?.querySelector('input, textarea, select') as HTMLInputElement;
+    
+    if (input && input.value.trim() !== '') {
+      showResponse(currentGroup, input.value);
+      const nextGroup = document.querySelector(`[data-step="${currentStep + 1}"]`);
+      nextGroup?.classList.remove('hidden');
+      const nextInput = nextGroup?.querySelector('input, textarea, select') as HTMLElement;
+      nextInput?.focus();
+    } else {
+      input?.classList.add('shake');
+      setTimeout(() => input?.classList.remove('shake'), 500);
+    }
+  }
+
+  function handleSubmit(currentGroup: Element) {
+    const input = currentGroup?.querySelector('select') as HTMLSelectElement;
+    
+    if (input && input.value) {
+      showResponse(currentGroup, input.value);
+      
+      const successMessage = document.createElement('div');
+      successMessage.className = 'text-green-400 mt-4 text-center';
+      successMessage.innerHTML = '> Connection request submitted successfully. Initializing response protocol...';
+      form?.appendChild(successMessage);
+    } else {
+      input?.classList.add('shake');
+      setTimeout(() => input?.classList.remove('shake'), 500);
+    }
+  }
+
+  // Handle Enter key press
+  form?.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      const currentGroup = (e.target as HTMLElement).closest('.terminal-input-group');
+      if (!currentGroup) return;
+      
+      const isLastStep = currentGroup.getAttribute('data-step') === '5';
+      if (isLastStep) {
+        handleSubmit(currentGroup);
+      } else {
+        handleNextStep(currentGroup);
+      }
+    }
+  });
+
+  // Handle button clicks
+  nextButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      const currentGroup = (button as HTMLElement).closest('.terminal-input-group');
+      if (currentGroup) handleNextStep(currentGroup);
+    });
+  });
+
+  submitButton?.addEventListener('click', (e) => {
+    e.preventDefault();
+    const currentGroup = (submitButton as HTMLElement).closest('.terminal-input-group');
+    if (currentGroup) handleSubmit(currentGroup);
+  });
+});
+
+// Terminal input effects
+document.querySelectorAll('.terminal-input').forEach(input => {
+  input.addEventListener('focus', () => {
+    (input as HTMLElement).style.boxShadow = '0 0 10px rgba(0, 255, 0, 0.2)';
+  });
+  
+  input.addEventListener('blur', () => {
+    (input as HTMLElement).style.boxShadow = 'none';
+  });
+});
+</script>
+
+<style>
+  .terminal-window {
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+  }
+
+  .typewriter-text {
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  .terminal-input-group {
+    position: relative;
+  }
+
+  .terminal-input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .terminal-input {
+    font-family: 'JetBrains Mono', monospace;
+    transition: all 0.3s ease;
+  }
+
+  .terminal-input:focus {
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+  }
+
+  select.terminal-input {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2300ff00'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+  }
+
+  .shake {
+    animation: shake 0.2s ease-in-out 0s 2;
+  }
+</style>
